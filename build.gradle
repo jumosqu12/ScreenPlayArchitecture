@@ -1,0 +1,153 @@
+
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '1.2.0'
+
+}
+
+group = 'co.com.bancolombia.screenplayarchitecture'
+version = '1.0.0'
+
+gradlePlugin {
+
+    website = 'https://github.com/bancolombia/ScreenPlayArchitecture'
+    vcsUrl = 'https://github.com/bancolombia/ScreenPlayArchitecture'
+    
+    plugins {
+        screenplayarchitecture {
+            id = 'co.com.bancolombia.screenplayarchitecture'
+			displayName = 'Scaffold ScreanPlay Architecture Bancolombia'
+			description = 'Gradle plugin to create a test application in Java that already works, It follows our best practices!'
+			implementationClass = 'co.com.bancolombia.PluginScreenPlay'
+            tags.set(['scaffold', 'screenplayarchitecture', 'Bancolombia', 'OpenSource'])
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+if (project.hasProperty('signing.keyId')) { // publish as library in maven central
+    apply plugin: 'signing'
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+
+                pom {
+                    name = bcPluginName
+                    description = bcPluginDescription
+                    url = bcRepo
+                    licenses {
+                        license {
+                            name = "APACHE LICENSE, VERSION 2.0"
+                            url = "https://www.apache.org/licenses/LICENSE-2.0"
+                            distribution = "repo"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "jumosqu"
+                            name = "juniormosquera12@gmail.com"
+                            email = "juniormosquera12@gmail.com"
+                        }
+                    }
+                    scm {
+                        url = bcRepo
+                    }
+                }
+            }
+        }
+    }
+
+    /*nexusPublishing {
+        repositories {
+            sonatype() {
+                group = "com.github.JuniorMM12"
+            }
+        }
+    }*/
+
+    signing {
+        sign(publishing.publications.mavenJava)
+    }
+
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
+
+    javadoc {
+        if (JavaVersion.current().isJava9Compatible()) {
+            options.addBooleanOption('html5', true)
+        }
+    }
+    javadoc.failOnError = false
+
+    tasks.withType(GenerateModuleMetadata) {
+        enabled = false
+    }
+
+    def signingTasks = tasks.withType(Sign)
+    signingTasks.forEach {project.logger.lifecycle('task sign: ' + it.name)}
+    tasks.withType(PublishToMavenRepository).configureEach { task ->
+        project.logger.lifecycle('task publish: ' + task.name)
+        if(task.name == 'publishMavenJavaPublicationToSonatypeRepository') {
+            project.logger.lifecycle('Applied to ' + task.name)
+            task.mustRunAfter('signMavenJavaPublication')
+            task.mustRunAfter('signPluginMavenPublication')
+        } else {
+            task.enabled = false
+        }
+    }
+}else{
+    publishing {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/bancolombia")
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
+    }
+
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/bancolombia")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+
+
+dependencies {
+    api 'com.github.spullara.mustache.java:compiler:0.9.10'
+    api 'commons-io:commons-io:2.12.0'
+    api 'com.fasterxml.jackson.core:jackson-databind:2.15.1'
+    api 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.1'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.1'
+    implementation 'io.github.classgraph:classgraph:4.8.103'
+
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.11.0'
+}
