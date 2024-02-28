@@ -33,6 +33,15 @@ echo "plugins {
   id \"co.com.bancolombia.screenplayarchitecture\" version \"1.0.0\"
 }" > build.gradle
 ```
+
+```sh
+echo 'pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}' > settings.gradle
+```
 # Tasks
 The Scaffolding ScreenPlay Architecture plugin will allow you run 7 tasks:
 
