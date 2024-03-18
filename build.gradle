@@ -49,9 +49,9 @@ if (project.hasProperty('signing.keyId')) { // publish as library in maven centr
                     }
                     developers {
                         developer {
-                            id = "jumosqu"
-                            name = "juniormosquera12@gmail.com"
-                            email = "juniormosquera12@gmail.com"
+                            id = "jumosqu12"
+                            name = "jumosqu@bancolombia.com.co"
+                            email = "jumosqu@bancolombia.com.co"
                         }
                     }
                     scm {
@@ -61,14 +61,6 @@ if (project.hasProperty('signing.keyId')) { // publish as library in maven centr
             }
         }
     }
-
-    /*nexusPublishing {
-        repositories {
-            sonatype() {
-                group = "com.github.JuniorMM12"
-            }
-        }
-    }*/
 
     signing {
         sign(publishing.publications.mavenJava)
@@ -118,18 +110,6 @@ if (project.hasProperty('signing.keyId')) { // publish as library in maven centr
 
 }
 
-publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/bancolombia")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
-}
 
 compileJava {
     sourceCompatibility = JavaVersion.VERSION_11
