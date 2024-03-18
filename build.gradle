@@ -13,13 +13,13 @@ gradlePlugin {
 
     website = 'https://github.com/bancolombia/ScreenPlayArchitecture'
     vcsUrl = 'https://github.com/bancolombia/ScreenPlayArchitecture'
-    
+
     plugins {
         screenplayarchitecture {
             id = 'co.com.bancolombia.screenplayarchitecture'
-			displayName = 'Scaffold ScreanPlay Architecture Bancolombia'
-			description = 'Gradle plugin to create a test application in Java that already works, It follows our best practices!'
-			implementationClass = 'co.com.bancolombia.PluginScreenPlay'
+            displayName = 'Scaffold ScreanPlay Architecture Bancolombia'
+            description = 'Gradle plugin to create a test application in Java that already works, It follows our best practices!'
+            implementationClass = 'co.com.bancolombia.PluginScreenPlay'
             tags.set(['scaffold', 'screenplayarchitecture', 'Bancolombia', 'OpenSource'])
         }
     }
@@ -116,7 +116,10 @@ compileJava {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
-
+test {
+    exclude '**/PluginScreenPlayTest.class'
+    exclude 'PluginScreenPlayTest.class'
+}
 
 dependencies {
     api 'com.github.spullara.mustache.java:compiler:0.9.11'

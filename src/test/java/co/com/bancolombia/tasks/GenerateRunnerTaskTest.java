@@ -48,7 +48,7 @@ public class GenerateRunnerTaskTest {
         task.setName("ConsumerUnitTest");
         task.setFolderName("packageprueba");
         task.execute();
-        assertTrue(new File("build/unitTest/src/test/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/test/java/co/com/example/test" +
                 "/screen/runners/packageprueba/ConsumerUnitTest.java").exists());
     }
 }
