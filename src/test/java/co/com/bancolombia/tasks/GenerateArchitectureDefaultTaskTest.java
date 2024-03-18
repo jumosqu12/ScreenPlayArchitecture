@@ -46,7 +46,7 @@ public class GenerateArchitectureDefaultTaskTest {
         assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/models/Model.java").exists());
         assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
-                "/screen/questions/question.java").exists());
+                "/screen/questions/Question.java").exists());
         assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/tasks/Task.java").exists());
         assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +

@@ -50,7 +50,7 @@ public class GenerateRestInteractionTaskTest {
         task.setTypeInteraction("Generic");
         task.setNameInteraction("prueba");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/interactions/prueba.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/interactions/Prueba.java").exists());
     }
     @Test
     public void GenerateRestInteractionPost() throws ScreenPlayException, IOException {
