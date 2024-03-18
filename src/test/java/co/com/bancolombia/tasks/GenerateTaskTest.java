@@ -49,7 +49,7 @@ public class GenerateTaskTest {
         task.setTypeTask("rest");
         task.setmethod("post");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/tasks/ConsumerUnitTest.java").exists());
     }
     @Test
@@ -58,7 +58,7 @@ public class GenerateTaskTest {
         task.setTypeTask("rest");
         task.setmethod("Get");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/tasks/ConsumerUnitGet.java").exists());
     }
     @Test
@@ -67,7 +67,7 @@ public class GenerateTaskTest {
         task.setTypeTask("rest");
         task.setmethod("Options");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/tasks/ConsumerUnitOption.java").exists());
     }
     @Test
@@ -76,7 +76,7 @@ public class GenerateTaskTest {
         task.setTypeTask("rest");
         task.setmethod("Put");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/tasks/ConsumerUnitPut.java").exists());
     }
     @Test
@@ -85,7 +85,7 @@ public class GenerateTaskTest {
         task.setTypeTask("rest");
         task.setmethod("Patch");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/tasks/ConsumerUnitPatch.java").exists());
     }
     @Test
@@ -93,7 +93,7 @@ public class GenerateTaskTest {
         task.setName("FrontUnitTest");
         task.setTypeTask("Ux");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/tasks/FrontUnitTest.java").exists());
     }
     private void writeString(File file, String string) throws IOException {

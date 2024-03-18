@@ -50,14 +50,14 @@ public class GenerateRestInteractionTaskTest {
         task.setTypeInteraction("Generic");
         task.setNameInteraction("prueba");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion/screen/interactions/prueba.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/interactions/prueba.java").exists());
     }
     @Test
     public void GenerateRestInteractionPost() throws ScreenPlayException, IOException {
         task.setTypeInteraction("Post");
         task.setNameInteraction("prueba");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion/screen/interactions/Post.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/interactions/Post.java").exists());
     }
 
     @Test
@@ -65,7 +65,7 @@ public class GenerateRestInteractionTaskTest {
         task.setTypeInteraction("Get");
         task.setNameInteraction("prueba");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion/screen/interactions/Get.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/interactions/Get.java").exists());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class GenerateRestInteractionTaskTest {
         task.setTypeInteraction("Options");
         task.setNameInteraction("prueba");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion/screen/interactions/Options.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/interactions/Options.java").exists());
     }
 
     @Test
@@ -81,7 +81,7 @@ public class GenerateRestInteractionTaskTest {
         task.setTypeInteraction("Put");
         task.setNameInteraction("prueba");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion/screen/interactions/Put.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/interactions/Put.java").exists());
     }
 
     @Test
@@ -89,7 +89,7 @@ public class GenerateRestInteractionTaskTest {
         task.setTypeInteraction("Patch");
         task.setNameInteraction("prueba");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion/screen/interactions/Patch.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/interactions/Patch.java").exists());
     }
 
     private void writeString(File file, String string) throws IOException {

@@ -37,25 +37,25 @@ public class GenerateArchitectureDefaultTaskTest {
         assertTrue(new File("build/unitTest/serenity.properties").exists());
         assertTrue(new File("build/unitTest/gradle.properties").exists());
         assertTrue(new File("build/unitTest/build.gradle").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/exceptions/Exception.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/integrations/Integration.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/interactions/Interaction.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/models/Model.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/questions/question.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/tasks/Task.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/userinterfaces/UserInterface.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test" +
                 "/screen/utils/Util.java").exists());
-        assertTrue(new File("build/unitTest/src/test/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/test/java/co/com/example/test" +
                 "/screen/runners/Runner.java").exists());
-        assertTrue(new File("build/unitTest/src/test/java/co/com/bancolombia/certificacion" +
+        assertTrue(new File("build/unitTest/src/test/java/co/com/example/test" +
                 "/screen/stepdefinitions/StepDefinition.java").exists());
         assertTrue(new File("build/unitTest/src/test/resources/features").exists());
 
