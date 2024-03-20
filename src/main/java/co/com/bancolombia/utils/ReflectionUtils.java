@@ -16,18 +16,6 @@ import java.util.Set;
 @UtilityClass
 public class ReflectionUtils {
 
-  /*public static Stream<Class<? extends ModuleFactory>> getModuleFactories(String packageName) {
-    return new Reflections(packageName, Scanners.SubTypes)
-        .getSubTypesOf(ModuleFactory.class).stream();
-  }
-
-  public static Stream<Class<? extends Task>> getTasks() {
-    return new Reflections("co.com.bancolombia.tasks", Scanners.TypesAnnotated)
-        .getTypesAnnotatedWith(CATask.class).stream()
-            .filter(Task.class::isAssignableFrom)
-            .map(c -> c.asSubclass(Task.class));
-  }*/
-
 
   public static <T extends ModuleFactory> Stream<Class<? extends T>> getModuleFactories(String packageName) {
     try (ScanResult scanResult = new ClassGraph().enableClassInfo().enableAnnotationInfo().whitelistPackages(packageName).scan()) {
@@ -44,7 +32,8 @@ public class ReflectionUtils {
   }
 
   public static <T extends Task> Stream<Class<? extends T>> getTasks() {
-    try (ScanResult scanResult = new ClassGraph().enableClassInfo().enableAnnotationInfo().whitelistPackages("co.com.bancolombia.tasks").scan()) {
+    try (ScanResult scanResult = new ClassGraph().enableClassInfo().enableAnnotationInfo()
+            .whitelistPackages("co.com.bancolombia.tasks").scan()) {
       List<Class<? extends T>> classes = scanResult
               .getClassesWithAnnotation(CATask.class.getName())
               .stream()
