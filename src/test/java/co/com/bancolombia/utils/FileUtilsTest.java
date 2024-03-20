@@ -30,8 +30,8 @@ public class FileUtilsTest {
 
     @Test
     public void returnRelativePath(){
-        String path = "src/main/java/co/com/bancolombia/certificacion/moduloprueba/questions/Question.java";
-        assertEquals("./src/main/java/co/com/bancolombia/certificacion/moduloprueba/questions/Question.java",
+        String path = "src/main/java/co/com/example/test/moduloprueba/questions/Question.java";
+        assertEquals("./src/main/java/co/com/example/test/moduloprueba/questions/Question.java",
                 FileUtil.toRelative(path));
     }
 

@@ -29,7 +29,7 @@ public class PluginScreenPlayTest {
         String descriptionTask5 = "Generate runner class";
         String descriptionTask6 = "Generate Serenity task";
         Project project = ProjectBuilder.builder().build();
-        project.getPluginManager().apply("co.com.bancolombia.screenPlayArchitecture");
+        project.getPluginManager().apply("io.github.jumosqu12.screenplayarchitecture");
 
         Task  task = project.getTasks().findByName("screenPlayArchitecture");
         Task  task2 = project.getTasks().findByName("generateFeature");
@@ -71,7 +71,7 @@ public class PluginScreenPlayTest {
         generateArchitectureDefaultTask.execute();
 
 
-        Plugin<?> applied = project.getPlugins().apply("co.com.bancolombia.screenPlayArchitecture");
+        Plugin<?> applied = project.getPlugins().apply("io.github.jumosqu12.screenplayarchitecture");
         assertNotNull(applied);
     }
 }

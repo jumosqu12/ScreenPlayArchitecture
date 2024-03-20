@@ -6,17 +6,17 @@ plugins {
 
 }
 
-group = 'co.com.bancolombia.screenplayarchitecture'
+group = 'io.github.jumosqu12.screenplayarchitecture'
 version = '1.0.0'
 
 gradlePlugin {
 
-    website = 'https://github.com/bancolombia/ScreenPlayArchitecture'
-    vcsUrl = 'https://github.com/bancolombia/ScreenPlayArchitecture'
+    website = 'https://github.com/jumosqu12/ScreenplayArchitecture'
+    vcsUrl = 'https://github.com/jumosqu12/ScreenplayArchitecture'
 
     plugins {
         screenplayarchitecture {
-            id = 'co.com.bancolombia.screenplayarchitecture'
+            id = 'io.github.jumosqu12.screenplayarchitecture'
             displayName = 'Scaffold ScreanPlay Architecture Bancolombia'
             description = 'Gradle plugin to create a test application in Java that already works, It follows our best practices!'
             implementationClass = 'co.com.bancolombia.PluginScreenPlay'

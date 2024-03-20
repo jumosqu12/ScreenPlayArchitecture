@@ -2,6 +2,14 @@
 
 Gradle plugin to create a java application based on ScreenPlay Architecture following our best practices.
 
+Bancolombia's technical team enables the ScreenPlay Architecture plugin as a tool that serves any programmer,
+organization, and anyone looking to implement test automations under the Screenplay design pattern making use 
+of programming and programming best practices. SOLID Principles.
+
+ScreenPlay Architecture is an open source plugin, which allows the entire community of programmers to contribute to 
+the development of improvements, new practices, functionalities and other contributions that make the plugin a robust 
+and useful tool for the entire community.
+
 - [Scaffolding of ScreenPlay Architecture](#Scaffolding-of-ScreenPlay-Architecture)
 - [Plugin Implementation](#plugin-implementation)
 - [Tasks](#tasks)
@@ -24,13 +32,13 @@ To use the [plugin](#) you need Gradle version 8.6 or later, to start add the fo
 
 ```groovy
 plugins {
-    id "co.com.bancolombia.screenplayarchitecture" version "1.0.0"
+    id "io.github.jumosqu12.screenplayarchitecture" version "1.0.0"
 }
 ```
 or if is a new project execute this script in the root directory of your project.
 ```sh
 echo "plugins {
-  id \"co.com.bancolombia.screenplayarchitecture\" version \"1.0.0\"
+  id \"io.github.jumosqu12.screenplayarchitecture\" version \"1.0.0\"
 }" > build.gradle
 ```
 
