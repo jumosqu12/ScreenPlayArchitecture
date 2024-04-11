@@ -42,14 +42,6 @@ echo "plugins {
 }" > build.gradle
 ```
 
-```sh
-echo 'pluginManagement {
-    repositories {
-        mavenLocal()
-        gradlePluginPortal()
-    }
-}' > settings.gradle
-```
 # Tasks
 The Scaffolding ScreenPlay Architecture plugin will allow you run 7 tasks:
 

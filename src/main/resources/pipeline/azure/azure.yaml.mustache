@@ -41,7 +41,7 @@ steps:
       tasks: 'clean build -x test'
       publishJUnitResults: false
       jdkVersionOption: 1.11
-    continueOnError: true
+    continueOnError: false
 
   - task: SonarQubeAnalyze@4
     displayName: 'Run Code Analysis'
