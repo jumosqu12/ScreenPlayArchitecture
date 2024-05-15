@@ -32,24 +32,16 @@ To use the [plugin](#) you need Gradle version 8.6 or later, to start add the fo
 
 ```groovy
 plugins {
-    id "io.github.jumosqu12.screenplayarchitecture" version "1.0.0"
+    id "io.github.jumosqu12.screenplayarchitecture" version "1.0.1"
 }
 ```
 or if is a new project execute this script in the root directory of your project.
 ```sh
 echo "plugins {
-  id \"io.github.jumosqu12.screenplayarchitecture\" version \"1.0.0\"
+  id \"io.github.jumosqu12.screenplayarchitecture\" version \"1.0.1\"
 }" > build.gradle
 ```
 
-```sh
-echo 'pluginManagement {
-    repositories {
-        mavenLocal()
-        gradlePluginPortal()
-    }
-}' > settings.gradle
-```
 # Tasks
 The Scaffolding ScreenPlay Architecture plugin will allow you run 7 tasks:
 
