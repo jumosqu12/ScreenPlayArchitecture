@@ -51,14 +51,14 @@ The **`screenPlayArchitecture | spa`** task will generate a ScreenPlay architect
 has 3 optional parameters; `projectName` , `groupId` and `principalPackage`.
 If you run this task on an existing project it will override the `build.gradle` file.
   - **`projectName`** `= ProjectName`: This parameter is going to specify name of the project. `Default value = Screenplay_architecture`
-  - **`groupId`** `= <your.company.domain>`: You can specify your domain, this parameter going to use for package structure. `Default value = co.com.bancolombia.certificacion`
+  - **`groupId`** `= <your.company.domain>`: You can specify your domain, this parameter going to use for package structure. `Default value = co.com.pragma.certificacion`
   - **`principalPackage`** `= package container`: This parameter going to like package container and is a complement for groupId. `Default value = screen`
   - **`type`** `= choose between REST or UX`: This parameter going to specify type automation will be create. `Default value = UX`
 
 
 ```shell
-gradle screenPlayArchitecture --projectName=Team_moduloPrueba --groupId=co.com.bancolombia.certificacion --principalPackage=moduloprueba --type=REST
-gradle spa --projectName=Team_moduloPrueba --groupId=co.com.bancolombia.certificacion --principalPackage=moduloprueba --type=REST
+gradle screenPlayArchitecture --projectName=Team_moduloPrueba --groupId=co.com.pragma.certificacion --principalPackage=moduloprueba --type=REST
+gradle spa --projectName=Team_moduloPrueba --groupId=co.com.pragma.certificacion --principalPackage=moduloprueba --type=REST
 ```
 
 **_The structure will look like this for java:_**

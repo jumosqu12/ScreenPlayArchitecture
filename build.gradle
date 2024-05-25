@@ -6,21 +6,21 @@ plugins {
 
 }
 
-group = 'io.github.jumosqu12.screenplayarchitecture'
+group = 'io.github.somospragma.qa-transversal-automation-serenity-screenplay-bdd-java-scaffolding-architecture'
 version = '1.0.1'
 
 gradlePlugin {
 
-    website = 'https://github.com/jumosqu12/ScreenplayArchitecture'
-    vcsUrl = 'https://github.com/jumosqu12/ScreenplayArchitecture'
+    website = 'https://github.com/somospragma/qa-transversal-automation-serenity-screenplay-bdd-java-scaffolding-architecture'
+    vcsUrl = 'https://github.com/somospragma/qa-transversal-automation-serenity-screenplay-bdd-java-scaffolding-architecture'
 
     plugins {
         screenplayarchitecture {
-            id = 'io.github.jumosqu12.screenplayarchitecture'
-            displayName = 'Scaffold ScreanPlay Architecture Bancolombia'
+            id = 'io.github.somospragma.qa-transversal-automation-serenity-screenplay-bdd-java-scaffolding-architecture'
+            displayName = 'Scaffold ScreanPlay Architecture implementation for Pragma Chapter QA'
             description = 'Gradle plugin to create a test application in Java that already works, It follows our best practices!'
-            implementationClass = 'co.com.bancolombia.PluginScreenPlay'
-            tags.set(['scaffold', 'screenplayarchitecture', 'Bancolombia', 'OpenSource'])
+            implementationClass = 'co.com.pragma.PluginScreenPlay'
+            tags.set(['scaffold', 'screenplayarchitecture', 'Pragma Implementation', 'OpenSource'])
         }
     }
 }
@@ -29,86 +29,86 @@ repositories {
     mavenCentral()
 }
 
-if (project.hasProperty('signing.keyId')) { // publish as library in maven central
-    apply plugin: 'signing'
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                from components.java
-
-                pom {
-                    name = bcPluginName
-                    description = bcPluginDescription
-                    url = bcRepo
-                    licenses {
-                        license {
-                            name = "APACHE LICENSE, VERSION 2.0"
-                            url = "https://www.apache.org/licenses/LICENSE-2.0"
-                            distribution = "repo"
-                        }
-                    }
-                    developers {
-                        developer {
-                            id = "jumosqu12"
-                            name = "jumosqu@bancolombia.com.co"
-                            email = "jumosqu@bancolombia.com.co"
-                        }
-                    }
-                    scm {
-                        url = bcRepo
-                    }
-                }
-            }
-        }
-    }
-
-    signing {
-        sign(publishing.publications.mavenJava)
-    }
-
-    java {
-        withJavadocJar()
-        withSourcesJar()
-    }
-
-    javadoc {
-        if (JavaVersion.current().isJava9Compatible()) {
-            options.addBooleanOption('html5', true)
-        }
-    }
-    javadoc.failOnError = false
-
-    tasks.withType(GenerateModuleMetadata) {
-        enabled = false
-    }
-
-    def signingTasks = tasks.withType(Sign)
-    signingTasks.forEach {project.logger.lifecycle('task sign: ' + it.name)}
-    tasks.withType(PublishToMavenRepository).configureEach { task ->
-        project.logger.lifecycle('task publish: ' + task.name)
-        if(task.name == 'publishMavenJavaPublicationToSonatypeRepository') {
-            project.logger.lifecycle('Applied to ' + task.name)
-            task.mustRunAfter('signMavenJavaPublication')
-            task.mustRunAfter('signPluginMavenPublication')
-        } else {
-            task.enabled = false
-        }
-    }
-}else{
-    publishing {
-        repositories {
-            maven {
-                name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/bancolombia")
-                credentials {
-                    username = System.getenv("GITHUB_ACTOR")
-                    password = System.getenv("GITHUB_TOKEN")
-                }
-            }
-        }
-    }
-
-}
+//if (project.hasProperty('signing.keyId')) { // publish as library in maven central
+//    apply plugin: 'signing'
+//    publishing {
+//        publications {
+//            mavenJava(MavenPublication) {
+//                from components.java
+//
+//                pom {
+//                    name = bcPluginName
+//                    description = bcPluginDescription
+//                    url = bcRepo
+//                    licenses {
+//                        license {
+//                            name = "APACHE LICENSE, VERSION 2.0"
+//                            url = "https://www.apache.org/licenses/LICENSE-2.0"
+//                            distribution = "repo"
+//                        }
+//                    }
+//                    developers {
+//                        developer {
+//                            id = "jumosqu12"
+//                            name = "jumosqu@bancolombia.com.co"
+//                            email = "jumosqu@bancolombia.com.co"
+//                        }
+//                    }
+//                    scm {
+//                        url = bcRepo
+//                    }
+//                }
+//            }
+//        }
+//    }
+//
+//    signing {
+//        sign(publishing.publications.mavenJava)
+//    }
+//
+//    java {
+//        withJavadocJar()
+//        withSourcesJar()
+//    }
+//
+//    javadoc {
+//        if (JavaVersion.current().isJava9Compatible()) {
+//            options.addBooleanOption('html5', true)
+//        }
+//    }
+//    javadoc.failOnError = false
+//
+//    tasks.withType(GenerateModuleMetadata) {
+//        enabled = false
+//    }
+//
+//    def signingTasks = tasks.withType(Sign)
+//    signingTasks.forEach {project.logger.lifecycle('task sign: ' + it.name)}
+//    tasks.withType(PublishToMavenRepository).configureEach { task ->
+//        project.logger.lifecycle('task publish: ' + task.name)
+//        if(task.name == 'publishMavenJavaPublicationToSonatypeRepository') {
+//            project.logger.lifecycle('Applied to ' + task.name)
+//            task.mustRunAfter('signMavenJavaPublication')
+//            task.mustRunAfter('signPluginMavenPublication')
+//        } else {
+//            task.enabled = false
+//        }
+//    }
+//}else{
+//    publishing {
+//        repositories {
+//            maven {
+//                name = "GitHubPackages"
+//                url = uri("https://maven.pkg.github.com/bancolombia")
+//                credentials {
+//                    username = System.getenv("GITHUB_ACTOR")
+//                    password = System.getenv("GITHUB_TOKEN")
+//                }
+//            }
+//        }
+//    }
+//
+//}
 
 
 compileJava {
