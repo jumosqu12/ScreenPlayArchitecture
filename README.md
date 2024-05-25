@@ -1,4 +1,4 @@
-# Scaffolding of ScreenPlay Architecture
+# Scaffolding of ScreenPlay Architecture - PRAGMA Implementation
 
 Gradle plugin to create a java application based on ScreenPlay Architecture following our best practices.
 
