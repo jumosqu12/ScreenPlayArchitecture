@@ -24,7 +24,7 @@ public class Constants {
         UX
     }
 
-    public static final String PLUGIN_VERSION = "1.0.1";
+    public static final String PLUGIN_VERSION = "1.1.0";
     public static final String BUILD_GRADLE = "./build.gradle";
     public static final String CRITICAL_ROOT_NAME = "rutacritica";
     public static final String GRADLE_PROPERTIES = "/gradle.properties";
@@ -34,6 +34,10 @@ public class Constants {
     public static final String SERENITY_VERSION = "4.1.0";
     public static final String SERENITY_REST_LIBRARY = "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion";
     public static final String SERENITY_UX_LIBRARY = "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityWebVersion";
+    public static final List<String> MYSQL_LIBRARY = List.of(new String[]
+            {"implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.4.0'",
+            "implementation group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '10.1.24'"}
+    );
     public static final String SERENITY_CUCUMBER_VERSION = "4.1.0";
     public static final String SERENITY_WEBDRIVER_VERSION = "serenityWebVersion = '4.1.0'";
     public static final String SERENITY_WEBDRIVER = "testImplementation(\"io.github.bonigarcia:webdrivermanager:5.4.1\")";
@@ -45,6 +49,11 @@ public class Constants {
     public static final List<String> TASKS = List.of(new String[]{"UX", "REST"});
     public static final List<String> SCENARIOS = List.of(new String[]{"Scenario", "Escenario", "Esquema del escenario", "Scenario Outline"});
     public static final List<String> STEPS = List.of(new String[]{"Dado", "Given"});
+    public static final List<String> DATABASE = List.of(new String[]{"mysql", "postgresql", "oracle", "sqlServer", "redis", "s3", "as400"});
+    public static final String METHODUI = "@Given(\"This method is responsible for parameterizing the instantiation of chromedriver\")\n" +
+            "    public void thisMethodIsResponsibleForParameterizingTheInstantiationOfChromedriver() {\n" +
+            "        OnStage.theActorInTheSpotlight().wasAbleTo(Open.browserOn().thePageNamed(\"pages.swaglabsUrl\"));\n" +
+            "    }";
 
 
 

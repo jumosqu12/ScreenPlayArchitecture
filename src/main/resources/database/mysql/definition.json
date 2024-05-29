@@ -1,0 +1,10 @@
+{
+  "folders": [],
+  "files": {
+    "database/mysql/mysql.properties.mustache": "mysql.properties"
+  },
+  "java": {
+    "database/mysql/MySqlConnection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/MySqlConnection.java",
+    "database/PropertiesManager.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/PropertiesManager.java"
+  }
+}
