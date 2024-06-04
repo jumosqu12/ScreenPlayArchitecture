@@ -1,0 +1,9 @@
+{
+  "folders": [],
+  "files": {
+    "database/s3/s3.properties.mustache": "s3.properties"
+  },
+  "java": {
+    "database/s3/s3Connection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/S3Connection.java"
+  }
+}

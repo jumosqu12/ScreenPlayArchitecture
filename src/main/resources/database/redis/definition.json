@@ -1,0 +1,9 @@
+{
+  "folders": [],
+  "files": {
+    "database/redis/redis.properties.mustache": "redis.properties"
+  },
+  "java": {
+    "database/redis/redisConnection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/RedisConnection.java"
+  }
+}

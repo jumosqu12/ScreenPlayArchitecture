@@ -1,0 +1,9 @@
+{
+  "folders": [],
+  "files": {
+    "database/oracle/oracle.properties.mustache": "oracle.properties"
+  },
+  "java": {
+    "database/oracle/oracleConnection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/OracleConnection.java"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "folders": [],
+  "files": {
+    "database/sqlserver/sqlServer.properties.mustache": "sqlServer.properties"
+  },
+  "java": {
+    "database/sqlserver/sqlServerConnection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/SqlServerConnection.java"
+  }
+}

@@ -1,6 +1,9 @@
 package co.com.bancolombia.utils;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class Constants {
 
@@ -34,10 +37,10 @@ public class Constants {
     public static final String SERENITY_VERSION = "4.1.0";
     public static final String SERENITY_REST_LIBRARY = "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion";
     public static final String SERENITY_UX_LIBRARY = "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityWebVersion";
-    public static final List<String> MYSQL_LIBRARY = List.of(new String[]
-            {"implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.4.0'",
-            "implementation group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '10.1.24'"}
-    );
+    public static final Map<String, String> DATA_BASE_LIBRARY = Map.of("mysql",
+            "implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.4.0'\n" +
+                    "    implementation group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '10.1.24'\n" +
+                    "    //Additional library");
     public static final String SERENITY_CUCUMBER_VERSION = "4.1.0";
     public static final String SERENITY_WEBDRIVER_VERSION = "serenityWebVersion = '4.1.0'";
     public static final String SERENITY_WEBDRIVER = "testImplementation(\"io.github.bonigarcia:webdrivermanager:5.4.1\")";

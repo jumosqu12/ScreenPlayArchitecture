@@ -18,7 +18,7 @@ public class GenerateBdConnection extends AbstracScreenPlayArchitectureDefaultTa
     private String dataBaseType;
 
     @Option(option = "dataBase", description = "Define data base type to implement")
-    public void setName(String dataBase) { this.dataBaseType = dataBase; }
+    public void setDataBaseType(String dataBase) { this.dataBaseType = dataBase; }
 
     @Override
     public void execute() throws IOException, ScreenPlayException {
@@ -33,6 +33,8 @@ public class GenerateBdConnection extends AbstracScreenPlayArchitectureDefaultTa
         logger.lifecycle("ScreenPlay architecture plugin version: {}", Util.getVersionPlugin());
         logger.lifecycle("Type implementation: {}", dataBaseType);
         builder.setupFromTemplate("database/" + dataBaseType.toLowerCase());
+        Util.getDataFile(builder, "//Additional library",
+                Constants.DATA_BASE_LIBRARY.get(dataBaseType.toLowerCase()));
         builder.persist();
     }
 }
