@@ -8,7 +8,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static co.com.bancolombia.utils.FileUtilsTest.deleteStructure;
@@ -18,25 +21,25 @@ public class GenerateBdConnectionTest {
 
     GenerateBdConnection task;
 
-    static Project project =
-            ProjectBuilder.builder().withProjectDir(new File("build/unitTest")).build();
-
     @Before
-    public void init() throws ScreenPlayException, IOException {
+    public void init() throws IOException, ScreenPlayException {
         deleteStructure(Path.of("build/unitTest"));
-        setup();
-    }
+        File projectDir = new File("build/unitTest");
+        Files.createDirectories(projectDir.toPath());
+        writeString(
+                new File(projectDir, "build.gradle"),
+                "plugins {" + "  co.com.bancolombia.screenplayarchitecture')" + "}");
 
-    @AfterClass
-    public static void  clean(){
-        deleteStructure(project.getProjectDir().toPath());
-    }
+        Project project =
+                ProjectBuilder.builder()
+                        .withName("screenArchitecture")
+                        .withProjectDir(new File("build/unitTest"))
+                        .build();
 
-    public void setup() throws ScreenPlayException, IOException {
-        project.getTasks().create("spa", GenerateArchitectureDefaultTask.class);
-        GenerateArchitectureDefaultTask architectureDefaultTask = (GenerateArchitectureDefaultTask)
-                project.getTasks().getByName("spa");
-        architectureDefaultTask.execute();
+        project.getTasks().create("testStructure", GenerateArchitectureDefaultTask.class);
+        GenerateArchitectureDefaultTask taskStructure =
+                (GenerateArchitectureDefaultTask) project.getTasks().getByName("testStructure");
+        taskStructure.execute();
 
         project.getTasks().create("test", GenerateBdConnection.class);
         task = (GenerateBdConnection) project.getTasks().getByName("test");
@@ -46,7 +49,30 @@ public class GenerateBdConnectionTest {
     public void generateMySqlDbConnection() throws ScreenPlayException, IOException {
         task.setDataBaseType("mysql");
         task.execute();
-        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/MysqlConnection.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/MySQLConnection.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/ExecuteQueryDB.java").exists());
         assertTrue(new File("build/unitTest/mysql.properties").exists());
+    }
+    @Test
+    public void generateAs400DbConnection() throws ScreenPlayException, IOException {
+        task.setDataBaseType("as400");
+        task.execute();
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/AS400Connection.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/ExecuteQueryDB.java").exists());
+        assertTrue(new File("build/unitTest/as400.properties").exists());
+    }
+    @Test
+    public void generatePostgreSqlDbConnection() throws ScreenPlayException, IOException {
+        task.setDataBaseType("postgresql");
+        task.execute();
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/PostgreSQLConnection.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/ExecuteQueryDB.java").exists());
+        assertTrue(new File("build/unitTest/postgresql.properties").exists());
+    }
+
+    private void writeString(File file, String string) throws IOException {
+        try (Writer writer = new FileWriter(file)) {
+            writer.write(string);
+        }
     }
 }

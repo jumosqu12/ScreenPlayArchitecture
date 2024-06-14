@@ -4,6 +4,7 @@
     "database/mysql/mysql.properties.mustache": "mysql.properties"
   },
   "java": {
-    "database/mysql/MySqlConnection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/MysqlConnection.java"
+    "database/mysql/MySqlConnection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/MySQLConnection.java",
+    "database/ExcuteQueryDb.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/ExecuteQueryDb.java"
   }
 }

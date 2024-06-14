@@ -37,9 +37,15 @@ public class Constants {
     public static final String SERENITY_VERSION = "4.1.0";
     public static final String SERENITY_REST_LIBRARY = "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion";
     public static final String SERENITY_UX_LIBRARY = "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityWebVersion";
-    public static final Map<String, String> DATA_BASE_LIBRARY = Map.of("mysql",
-            "implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.4.0'\n" +
-                    "    implementation group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '10.1.24'\n" +
+    public static final Map<String, String> DATA_BASE_LIBRARY = Map.of(
+            "mysql", "//MySQL library\n" +
+                    "    implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.4.0'\n" +
+                    "    //Additional library",
+            "as400", "//AS400 library\n" +
+                    "    implementation group: 'net.sf.jt400', name: 'jt400', version: '20.0.6'\n " +
+                    "    //Additional library",
+            "postgresql", "//postgresql library\n" +
+                    "    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.3'\n" +
                     "    //Additional library");
     public static final String SERENITY_CUCUMBER_VERSION = "4.1.0";
     public static final String SERENITY_WEBDRIVER_VERSION = "serenityWebVersion = '4.1.0'";

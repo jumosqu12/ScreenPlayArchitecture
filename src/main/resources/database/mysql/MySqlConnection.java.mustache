@@ -1,79 +1,33 @@
 package {{package}}.utils.connetiondb;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
-import org.apache.tomcat.jdbc.pool.PoolProperties;
-import {{package}}.utils.connetiondb.PropertiesManager;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import org.apache.commons.dbcp2.BasicDataSource;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-public class MySQLConnection {
-    private static DataSource dataSource;
+public class MySQLConnection extends ExecuteQueryDb {
 
-
-    public static void initialize(String properties) {
-        Properties dbProp;
-
-        dbProp = PropertiesManager.getDbProperties(properties);
-
-        if (dataSource != null) {
-            dbProp = PropertiesManager.getDbProperties(properties);
-            if (!isNotEmptyPropertiesValues(dbProp)) {
-                throw new IllegalStateException("Properties file undefined.");
-            }
-            throw new IllegalStateException("Properties file undefined.");
-        }
-
-        PoolProperties pool = new PoolProperties();
-        pool.setUrl(String.format("jdbc:mysql://%s:%d/%s",
-            dbProp.getProperty("HOST").trim(), dbProp.getProperty("PORT").trim(),
-            dbProp.getProperty("NAME_DATABASE").trim()));
-        pool.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        pool.setUsername(dbProp.getProperty("USER").trim());
-        pool.setPassword(System.getProperty("PASS"));
-        pool.setMaxActive(Integer.parseInt(dbProp.getProperty("QUANTITY").trim()));  // Connection pool size configuration
-
-        dataSource = new DataSource();
-        dataSource.setPoolProperties(pool);
+    public MySQLConnection(String propertiesFile) {
+            super(propertiesFile);
     }
 
-    public static Connection getConnection() throws SQLException {
-        if (dataSource == null) {
-            throw new IllegalStateException("DataSource has not been initialized.");
-        }
-        return dataSource.getConnection();
-    }
-
-    public static void close() {
-        if (dataSource != null) {
-            dataSource.close();
-        }
-    }
-
-    private static boolean isNotEmptyPropertiesValues(Properties dbProp) {
-        AtomicBoolean flap = new AtomicBoolean(true);
-        dbProp.stringPropertyNames().forEach(a -> {
-            String key = a.trim();
-            boolean validate = dbProp.getProperty(key).trim().isEmpty();
-            if (validate) {
-                throw new IllegalStateException(String.format("In the properties file the field is empty %s", key));
-            }
-            flap.set(flap.get() && !validate);
-        });
-        return flap.get();
-    }
-
-    //This method is implement and complete in the class where you need
-    public static void connection() {
-        MySQLConnection.initialize("mysql.properties");
-        try (Connection connection = MySQLConnection.getConnection()) {
-            System.out.println("Success Connection");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            MySQLConnection.close();
+    public void loadProperties(String propertiesFilePath) {
+        Properties properties = new Properties();
+        try (FileInputStream input = new FileInputStream(propertiesFilePath)) {
+            properties.load(input);
+            dataSource = new BasicDataSource();
+            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+            dataSource.setUrl(String.format("%s%s:%s/%s",
+                    properties.getProperty("db.JDBC"),
+                    properties.getProperty("db.HOST"),
+                    properties.getProperty("db.PORT"),
+                    properties.getProperty("db.NAME_DATABASE")));
+            dataSource.setUsername(properties.getProperty("db.USER"));
+            dataSource.setPassword(System.getProperty("PASSMSQL"));
+            dataSource.setMaxTotal(Integer.parseInt(properties.getProperty("db.poolSize", "10")));
+        } catch (IOException e) {
+            throw new IllegalStateException("Error loading properties file: " + e.getMessage());
         }
     }
 }
