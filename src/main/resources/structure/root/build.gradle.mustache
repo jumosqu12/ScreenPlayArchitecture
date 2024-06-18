@@ -49,12 +49,17 @@ dependencies {
     implementation 'org.slf4j:slf4j-simple:2.0.5'
     {{webDriverLibrary}}
 
-//Lombok dependencies
+    //Lombok dependencies
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor  "org.projectlombok:lombok:${lombokVersion}"
     testCompileOnly  "org.projectlombok:lombok:${lombokVersion}"
 
     //Additional library
     implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.12.0'
+
+}
+
+tasks.named('test') {
+    // System configs
 
 }

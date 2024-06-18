@@ -70,6 +70,15 @@ public class GenerateBdConnectionTest {
         assertTrue(new File("build/unitTest/postgresql.properties").exists());
     }
 
+    @Test
+    public void generateSqlServerDbConnection() throws ScreenPlayException, IOException {
+        task.setDataBaseType("sqlserver");
+        task.execute();
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/SqlServerConnection.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/ExecuteQueryDB.java").exists());
+        assertTrue(new File("build/unitTest/sqlServer.properties").exists());
+    }
+
     private void writeString(File file, String string) throws IOException {
         try (Writer writer = new FileWriter(file)) {
             writer.write(string);

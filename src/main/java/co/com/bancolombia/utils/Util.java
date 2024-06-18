@@ -113,8 +113,8 @@ public class Util {
                 throw new IllegalArgumentException("Failed");
             }
         }else {
-            throw new IllegalArgumentException("Your build.gradle file no contain the flag indicator please, add //Additional library\n" +
-                    "    //End Additional library on the food the your build.gradle file.");
+            throw new IllegalArgumentException("Your build.gradle file does not contain the flag indicator. Please add //Additional library\n" +
+                    "to the bottom of your build.gradle file or execute screenPlayArchitecture | spa task for reformat your build.gradle file.");
         }
         return PARAM_END;
     }

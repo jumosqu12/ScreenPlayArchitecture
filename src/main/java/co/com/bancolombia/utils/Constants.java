@@ -46,7 +46,19 @@ public class Constants {
                     "    //Additional library",
             "postgresql", "//postgresql library\n" +
                     "    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.3'\n" +
+                    "    //Additional library",
+            "oracle", "//Oracle library\n" +
+                    "    implementation group: 'com.oracle.database.jdbc', name: 'ojdbc8', version: '23.2.0.0'\n" +
+                    "    //Additional library",
+            "sqlserver","//Sql Server library\n" +
+                    "    implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '12.7.0'\n" +
                     "    //Additional library");
+    public static final Map<String, String> PARAM_CONFIG = Map.of(
+            "mysql", "PASSMSQL",
+            "as400", "PASSAS400",
+            "postgresql", "PASSPSQL",
+            "oracle", "PASSORACLE",
+            "sqlserver","PASSSQLS");
     public static final String SERENITY_CUCUMBER_VERSION = "4.1.0";
     public static final String SERENITY_WEBDRIVER_VERSION = "serenityWebVersion = '4.1.0'";
     public static final String SERENITY_WEBDRIVER = "testImplementation(\"io.github.bonigarcia:webdrivermanager:5.4.1\")";
@@ -58,7 +70,9 @@ public class Constants {
     public static final List<String> TASKS = List.of(new String[]{"UX", "REST"});
     public static final List<String> SCENARIOS = List.of(new String[]{"Scenario", "Escenario", "Esquema del escenario", "Scenario Outline"});
     public static final List<String> STEPS = List.of(new String[]{"Dado", "Given"});
-    public static final List<String> DATABASE = List.of(new String[]{"mysql", "postgresql", "oracle", "sqlServer", "redis", "s3", "as400"});
+    public static final List<String> DATABASE = List.of(new String[]{"mysql", "postgresql", "oracle", "sqlserver", "as400"});
+    public static final String SETTING_SYSTEM_CONFIG = "systemProperty 'PARAM', System.getProperty('PARAM')\n" +
+            "    // System configs";
     public static final String METHODUI = "@Given(\"This method is responsible for parameterizing the instantiation of chromedriver\")\n" +
             "    public void thisMethodIsResponsibleForParameterizingTheInstantiationOfChromedriver() {\n" +
             "        OnStage.theActorInTheSpotlight().wasAbleTo(Open.browserOn().thePageNamed(\"pages.swaglabsUrl\"));\n" +

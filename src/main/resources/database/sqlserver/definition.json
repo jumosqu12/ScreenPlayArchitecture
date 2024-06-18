@@ -1,9 +1,11 @@
 {
   "folders": [],
   "files": {
-    "database/sqlserver/sqlServer.properties.mustache": "sqlServer.properties"
+    "database/sqlserver/sqlserver.properties.mustache": "sqlServer.properties"
   },
   "java": {
-    "database/sqlserver/sqlServerConnection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/SqlServerConnection.java"
+    "database/sqlserver/sqlServerConnection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/SqlServerConnection.java",
+    "database/ExcuteQueryDb.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/ExecuteQueryDb.java"
+
   }
 }

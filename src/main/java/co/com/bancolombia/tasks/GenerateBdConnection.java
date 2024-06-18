@@ -27,7 +27,7 @@ public class GenerateBdConnection extends AbstracScreenPlayArchitectureDefaultTa
         }
         if ( !Constants.DATABASE.contains(dataBaseType.toLowerCase())){
             throw new IllegalArgumentException("you must choose a type of database available in the following list:" +
-                    " MySQL, PostgreSQL, Oracle, SQLServer, Redis, S3, AS400");
+                    " MySQL, PostgreSQL, Oracle, SQLServer and AS400");
         }
 
         logger.lifecycle("ScreenPlay architecture plugin version: {}", Util.getVersionPlugin());
@@ -35,6 +35,9 @@ public class GenerateBdConnection extends AbstracScreenPlayArchitectureDefaultTa
         builder.setupFromTemplate("database/" + dataBaseType.toLowerCase());
         Util.getDataFile(builder, "//Additional library",
                 Constants.DATA_BASE_LIBRARY.get(dataBaseType.toLowerCase()));
+        Util.getDataFile(builder, "// System configs",
+                Constants.SETTING_SYSTEM_CONFIG.replace("PARAM",
+                        Constants.PARAM_CONFIG.get(dataBaseType.toLowerCase())));
         builder.persist();
     }
 }
