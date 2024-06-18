@@ -275,11 +275,9 @@ mentioned in the list attached to this description, this task has a required par
 | PostgreSQL                 |
 | Oracle                     |
 | SQLServer                  |
-| Redis                      |
-| S3                         |
 | AS400                      |
 
-- **`dbConnection`** `= MySQL`: This parameter specify the database type what you need to use. `field is required`
+- **`dataBase = MySQL`**: This parameter specify the database type what you need to use. `field is required`
 
 ```shell
   gradle dbConnection --dataBase=databasetype
