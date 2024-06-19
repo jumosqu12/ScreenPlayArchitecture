@@ -19,6 +19,7 @@ and useful tool for the entire community.
     - [Generate Rest Interaction](#generate-rest-interaction)
     - [Generate Tasks](#generate-tasks)
     - [Generate Pipeline](#generate-pipeline)
+    - [Generate Database connection](#generate-database-connection)
     - [Generate Critical Root](#generate-critical-root)
 - [How can I help?](#how-can-i-help)
 - [What's Next?](#whats-next)
@@ -264,7 +265,7 @@ parameters `name` and `type`
    ┗ 📜settings.gradle
 ```
 
-## Generate Data Base Connection
+## Generate Database Connection
 
 The **`dbConnection | dbc`** task will generate the class necessary to configure a connection to the databases
 mentioned in the list attached to this description, this task has a required parameters `dataBase`
