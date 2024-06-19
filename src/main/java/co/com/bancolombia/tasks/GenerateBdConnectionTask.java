@@ -13,7 +13,7 @@ import java.io.IOException;
         shortCut = "dbc",
         description = "Generate class for data base connections"
 )
-public class GenerateBdConnection extends AbstracScreenPlayArchitectureDefaultTask{
+public class GenerateBdConnectionTask extends AbstracScreenPlayArchitectureDefaultTask{
 
     private String dataBaseType;
 

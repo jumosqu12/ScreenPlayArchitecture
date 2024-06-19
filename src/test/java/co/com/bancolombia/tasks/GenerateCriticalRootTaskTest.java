@@ -3,7 +3,6 @@ package co.com.bancolombia.tasks;
 import co.com.bancolombia.exceptions.ScreenPlayException;
 import org.gradle.api.Project;
 import org.gradle.testfixtures.ProjectBuilder;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,8 +16,8 @@ import java.nio.file.Path;
 import static co.com.bancolombia.utils.FileUtilsTest.deleteStructure;
 import static org.junit.Assert.assertTrue;
 
-public class GenerateCriticalRootTest {
-    GenerateCriticalRoot task;
+public class GenerateCriticalRootTaskTest {
+    GenerateCriticalRootTask task;
     GenerateFeatureTask featureTask;
 
     @Before
@@ -41,8 +40,8 @@ public class GenerateCriticalRootTest {
                 (GenerateArchitectureDefaultTask) project.getTasks().getByName("testStructure");
         taskStructure.execute();
 
-        project.getTasks().create("test", GenerateCriticalRoot.class);
-        task = (GenerateCriticalRoot) project.getTasks().getByName("test");
+        project.getTasks().create("test", GenerateCriticalRootTask.class);
+        task = (GenerateCriticalRootTask) project.getTasks().getByName("test");
 
         project.getTasks().create("testFeature", GenerateFeatureTask.class);
         featureTask = (GenerateFeatureTask) project.getTasks().getByName("testFeature");

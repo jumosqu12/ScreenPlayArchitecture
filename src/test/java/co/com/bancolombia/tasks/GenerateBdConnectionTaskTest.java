@@ -3,7 +3,6 @@ package co.com.bancolombia.tasks;
 import co.com.bancolombia.exceptions.ScreenPlayException;
 import org.gradle.api.Project;
 import org.gradle.testfixtures.ProjectBuilder;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,9 +16,9 @@ import java.nio.file.Path;
 import static co.com.bancolombia.utils.FileUtilsTest.deleteStructure;
 import static org.junit.Assert.assertTrue;
 
-public class GenerateBdConnectionTest {
+public class GenerateBdConnectionTaskTest {
 
-    GenerateBdConnection task;
+    GenerateBdConnectionTask task;
 
     @Before
     public void init() throws IOException, ScreenPlayException {
@@ -28,11 +27,11 @@ public class GenerateBdConnectionTest {
         Files.createDirectories(projectDir.toPath());
         writeString(
                 new File(projectDir, "build.gradle"),
-                "plugins {" + "  co.com.bancolombia.screenplayarchitecture')" + "}");
+                "plugins {" + "  co.com.bancolombia.screenPlayArchitecture')" + "}");
 
         Project project =
                 ProjectBuilder.builder()
-                        .withName("screenArchitecture")
+                        .withName("cleanArchitecture")
                         .withProjectDir(new File("build/unitTest"))
                         .build();
 
@@ -41,16 +40,15 @@ public class GenerateBdConnectionTest {
                 (GenerateArchitectureDefaultTask) project.getTasks().getByName("testStructure");
         taskStructure.execute();
 
-        project.getTasks().create("test", GenerateBdConnection.class);
-        task = (GenerateBdConnection) project.getTasks().getByName("test");
+        project.getTasks().create("test", GenerateBdConnectionTask.class);
+        task = (GenerateBdConnectionTask) project.getTasks().getByName("test");
     }
-
     @Test
     public void generateMySqlDbConnection() throws ScreenPlayException, IOException {
         task.setDataBaseType("mysql");
         task.execute();
         assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/MySQLConnection.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/ExecuteQueryDB.java").exists());
+        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/ExecuteQueryDb.java").exists());
         assertTrue(new File("build/unitTest/mysql.properties").exists());
     }
     @Test
