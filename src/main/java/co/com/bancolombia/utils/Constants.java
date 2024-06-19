@@ -1,6 +1,9 @@
 package co.com.bancolombia.utils;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class Constants {
 
@@ -24,7 +27,7 @@ public class Constants {
         UX
     }
 
-    public static final String PLUGIN_VERSION = "1.0.1";
+    public static final String PLUGIN_VERSION = "1.1.0";
     public static final String BUILD_GRADLE = "./build.gradle";
     public static final String CRITICAL_ROOT_NAME = "rutacritica";
     public static final String GRADLE_PROPERTIES = "/gradle.properties";
@@ -34,6 +37,28 @@ public class Constants {
     public static final String SERENITY_VERSION = "4.1.0";
     public static final String SERENITY_REST_LIBRARY = "net.serenity-bdd:serenity-screenplay-rest:$rootProject.ext.serenityVersion";
     public static final String SERENITY_UX_LIBRARY = "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityWebVersion";
+    public static final Map<String, String> DATA_BASE_LIBRARY = Map.of(
+            "mysql", "//MySQL library\n" +
+                    "    implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.4.0'\n" +
+                    "    //Additional library",
+            "as400", "//AS400 library\n" +
+                    "    implementation group: 'net.sf.jt400', name: 'jt400', version: '20.0.6'\n " +
+                    "    //Additional library",
+            "postgresql", "//postgresql library\n" +
+                    "    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.3'\n" +
+                    "    //Additional library",
+            "oracle", "//Oracle library\n" +
+                    "    implementation group: 'com.oracle.database.jdbc', name: 'ojdbc8', version: '23.2.0.0'\n" +
+                    "    //Additional library",
+            "sqlserver","//Sql Server library\n" +
+                    "    implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '12.7.0'\n" +
+                    "    //Additional library");
+    public static final Map<String, String> PARAM_CONFIG = Map.of(
+            "mysql", "PASSMSQL",
+            "as400", "PASSAS400",
+            "postgresql", "PASSPSQL",
+            "oracle", "PASSORACLE",
+            "sqlserver","PASSSQLS");
     public static final String SERENITY_CUCUMBER_VERSION = "4.1.0";
     public static final String SERENITY_WEBDRIVER_VERSION = "serenityWebVersion = '4.1.0'";
     public static final String SERENITY_WEBDRIVER = "testImplementation(\"io.github.bonigarcia:webdrivermanager:5.4.1\")";
@@ -45,6 +70,13 @@ public class Constants {
     public static final List<String> TASKS = List.of(new String[]{"UX", "REST"});
     public static final List<String> SCENARIOS = List.of(new String[]{"Scenario", "Escenario", "Esquema del escenario", "Scenario Outline"});
     public static final List<String> STEPS = List.of(new String[]{"Dado", "Given"});
+    public static final List<String> DATABASE = List.of(new String[]{"mysql", "postgresql", "oracle", "sqlserver", "as400"});
+    public static final String SETTING_SYSTEM_CONFIG = "systemProperty 'PARAM', System.getProperty('PARAM')\n" +
+            "    // System configs";
+    public static final String METHODUI = "@Given(\"This method is responsible for parameterizing the instantiation of chromedriver\")\n" +
+            "    public void thisMethodIsResponsibleForParameterizingTheInstantiationOfChromedriver() {\n" +
+            "        OnStage.theActorInTheSpotlight().wasAbleTo(Open.browserOn().thePageNamed(\"pages.swaglabsUrl\"));\n" +
+            "    }";
 
 
 

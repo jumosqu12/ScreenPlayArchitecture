@@ -1,7 +1,9 @@
 package co.com.bancolombia.utils;
 
 import co.com.bancolombia.exceptions.ParamNotFoundException;
+import co.com.bancolombia.factory.ModuleBuilder;
 
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -85,5 +87,35 @@ public class Util {
             methods.add("body");
         }
         return methods;
+    }
+
+    public static String getDataFile(ModuleBuilder builder, String valueToMatch, String valueRepleace) throws IOException {
+        String dataFile = "";
+        dataFile = FileUtil.readFile(
+                builder.getProject(), "build.gradle");
+        if (!FileUtil.findMatches(dataFile, valueToMatch).get(0).isEmpty()){
+            File fileToBeModified = new File("build.gradle");
+            StringBuilder newContent = new StringBuilder();
+
+            // el archivo y reemplaza el texto
+            try (BufferedReader reader = new BufferedReader(new FileReader(fileToBeModified))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    newContent.append(line.replace(valueToMatch, valueRepleace)).append(System.lineSeparator());
+                }
+            } catch (IOException e) {
+                throw new IllegalArgumentException("Failed");
+            }
+            // Escribe el nuevo contenido de vuelta al archivo
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileToBeModified))) {
+                writer.write(newContent.toString());
+            } catch (IOException e) {
+                throw new IllegalArgumentException("Failed");
+            }
+        }else {
+            throw new IllegalArgumentException("Your build.gradle file does not contain the flag indicator. Please add //Additional library\n" +
+                    "to the bottom of your build.gradle file or execute screenPlayArchitecture | spa task for reformat your build.gradle file.");
+        }
+        return PARAM_END;
     }
 }

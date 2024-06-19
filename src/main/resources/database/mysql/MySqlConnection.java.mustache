@@ -1,0 +1,33 @@
+package {{package}}.utils.connetiondb;
+
+
+import org.apache.commons.dbcp2.BasicDataSource;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class MySQLConnection extends ExecuteQueryDb {
+
+    public MySQLConnection(String propertiesFile) {
+            super(propertiesFile);
+    }
+
+    public void loadProperties(String propertiesFilePath) {
+        Properties properties = new Properties();
+        try (FileInputStream input = new FileInputStream(propertiesFilePath)) {
+            properties.load(input);
+            dataSource = new BasicDataSource();
+            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+            dataSource.setUrl(String.format("%s%s:%s/%s",
+                    properties.getProperty("db.JDBC"),
+                    properties.getProperty("db.HOST"),
+                    properties.getProperty("db.PORT"),
+                    properties.getProperty("db.NAME_DATABASE")));
+            dataSource.setUsername(properties.getProperty("db.USER"));
+            dataSource.setPassword(System.getProperty("PASSMSQL"));
+            dataSource.setMaxTotal(Integer.parseInt(properties.getProperty("db.poolSize", "10")));
+        } catch (IOException e) {
+            throw new IllegalStateException("Error loading properties file: " + e.getMessage());
+        }
+    }
+}

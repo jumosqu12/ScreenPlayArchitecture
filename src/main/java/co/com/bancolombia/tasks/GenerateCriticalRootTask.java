@@ -1,6 +1,5 @@
 package co.com.bancolombia.tasks;
 
-import co.com.bancolombia.exceptions.ParamNotFoundException;
 import co.com.bancolombia.exceptions.ScreenPlayException;
 import co.com.bancolombia.tasks.annotations.CATask;
 import co.com.bancolombia.utils.Constants;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.util.*;
 
 @CATask(name = "generateCriticalRoot", shortCut = "gcr", description = "Generate json critical root file")
-public class GenerateCriticalRoot extends AbstracScreenPlayArchitectureDefaultTask {
+public class GenerateCriticalRootTask extends AbstracScreenPlayArchitectureDefaultTask {
 
     private String componentName = "";
     private String features;

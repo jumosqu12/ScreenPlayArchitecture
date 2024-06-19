@@ -1,0 +1,32 @@
+package {{package}}.utils.connetiondb;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+import java.io.FileInputStream;
+import java.util.Properties;
+import java.io.IOException;
+
+public class SqlServerConnection extends ExecuteQueryDb {
+    public SqlServerConnection(String propertiesFile) {
+        super(propertiesFile);
+    }
+
+    @Override
+    void loadProperties(String propertiesFilePath) {
+        Properties properties = new Properties();
+        try (FileInputStream input = new FileInputStream(propertiesFilePath)) {
+            properties.load(input);
+            dataSource = new BasicDataSource();
+            dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            dataSource.setUrl(String.format("%s%s:%s;databaseName=%s",
+                    properties.getProperty("db.JDBC"),
+                    properties.getProperty("db.HOST"),
+                    properties.getProperty("db.PORT"),
+                    properties.getProperty("db.NAME_DATABASE")));
+            dataSource.setUsername(properties.getProperty("db.USER"));
+            dataSource.setPassword(System.getProperty("PASSSQLS"));
+            dataSource.setMaxTotal(Integer.parseInt(properties.getProperty("db.poolSize", "10")));
+        } catch (IOException e) {
+            System.out.println("Error loading properties file: " + e.getMessage());
+        }
+    }
+}

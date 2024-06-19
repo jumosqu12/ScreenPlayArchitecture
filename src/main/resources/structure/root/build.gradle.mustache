@@ -40,19 +40,26 @@ dependencies {
     implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
     implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+    implementation 'org.slf4j:slf4j-simple:2.0.5'
     implementation "{{libreryToUse}}"
 
     //Test compilation
     testImplementation "junit:junit:$rootProject.ext.junit"
     testImplementation "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrest"
+    implementation 'org.slf4j:slf4j-simple:2.0.5'
     {{webDriverLibrary}}
 
-//Lombok dependencies
+    //Lombok dependencies
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor  "org.projectlombok:lombok:${lombokVersion}"
     testCompileOnly  "org.projectlombok:lombok:${lombokVersion}"
 
     //Additional library
-    //End Additional library
+    implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.12.0'
+
+}
+
+tasks.named('test') {
+    // System configs
 
 }

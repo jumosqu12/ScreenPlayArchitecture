@@ -79,8 +79,9 @@ public class GenerateArchitectureDefaultTask extends AbstracScreenPlayArchitectu
         builder.addParam("hamcrestV", Constants.HAMCREST);
         builder.addParam("versionLoom", Constants.LOMBOK_VERSION);
         builder.addParam("screenArchitectureV", Util.getVersionPlugin());
+        builder.addParam("methodUserInterface", type.equals(ProjectType.UX) ? Constants.METHODUI:"");
 
-        Boolean exists = FileUtil.exists(builder.getProject().getProjectDir().getPath(), SERENITY_PROPERTIES);
+        boolean exists = FileUtil.exists(builder.getProject().getProjectDir().getPath(), SERENITY_PROPERTIES);
         if (exists && force == BooleanOption.FALSE){
             logger.lifecycle("Another project was found in the same directory, rewriting build.gradle, gradle.properties and setting.gradle files ");
             builder.setupFromTemplate("structure/restructure");

@@ -1,0 +1,11 @@
+{
+  "folders": [],
+  "files": {
+    "database/postgresql/postgresql.properties.mustache": "postgresql.properties"
+  },
+  "java": {
+    "database/postgresql/postgresqlConnection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/PostgreSQLConnection.java",
+    "database/ExcuteQueryDb.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/ExecuteQueryDb.java"
+
+  }
+}

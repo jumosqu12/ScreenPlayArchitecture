@@ -1,0 +1,10 @@
+{
+  "folders": [],
+  "files": {
+    "database/as400/as400.properties.mustache": "as400.properties"
+  },
+  "java": {
+    "database/as400/As400Connection.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/AS400Connection.java",
+    "database/ExcuteQueryDb.java.mustache" : "src/main/{{language}}/{{packagePath}}/utils/connetiondb/ExecuteQueryDb.java"
+  }
+}

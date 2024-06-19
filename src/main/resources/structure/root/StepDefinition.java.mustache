@@ -1,3 +1,15 @@
 package {{groupId}}.{{principalPackage}}.stepdefinitions;
 
-public class StepDefinition {}
+import io.cucumber.java.Before;
+
+public class StepDefinition {
+
+    @Before
+    public void config(){
+        OnStage.setTheStage(new OnlineCast());
+        OnStage.theActorCalled("user");
+    }
+
+    ${{methodUserInterface}}
+
+}
