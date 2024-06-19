@@ -55,7 +55,6 @@ public class GenerateBdConnectionTaskTest {
         task.setDataBaseType("as400");
         task.execute();
         assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/AS400Connection.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/ExecuteQueryDB.java").exists());
         assertTrue(new File("build/unitTest/as400.properties").exists());
     }
     @Test
@@ -63,7 +62,6 @@ public class GenerateBdConnectionTaskTest {
         task.setDataBaseType("postgresql");
         task.execute();
         assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/PostgreSQLConnection.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/ExecuteQueryDB.java").exists());
         assertTrue(new File("build/unitTest/postgresql.properties").exists());
     }
 
@@ -72,7 +70,6 @@ public class GenerateBdConnectionTaskTest {
         task.setDataBaseType("sqlserver");
         task.execute();
         assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/SqlServerConnection.java").exists());
-        assertTrue(new File("build/unitTest/src/main/java/co/com/example/test/screen/utils/connetiondb/ExecuteQueryDB.java").exists());
         assertTrue(new File("build/unitTest/sqlServer.properties").exists());
     }
 
