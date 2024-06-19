@@ -22,7 +22,6 @@ public class GenerateBdConnectionTaskTest {
 
     @Before
     public void init() throws IOException, ScreenPlayException {
-        deleteStructure(Path.of("build/unitTest"));
         File projectDir = new File("build/unitTest");
         Files.createDirectories(projectDir.toPath());
         writeString(
