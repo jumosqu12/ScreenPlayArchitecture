@@ -43,6 +43,8 @@ echo "plugins {
 }" > build.gradle
 ```
 
+<img src="./media/prueba.gif" alt="Demostración del uso" width="70%"/>
+
 # Tasks
 
 The Scaffolding ScreenPlay Architecture plugin will allow you run 8 tasks:
