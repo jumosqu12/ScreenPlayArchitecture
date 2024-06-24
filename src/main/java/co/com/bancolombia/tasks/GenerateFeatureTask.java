@@ -3,6 +3,7 @@ package co.com.bancolombia.tasks;
 import co.com.bancolombia.exceptions.ParamNotFoundException;
 import co.com.bancolombia.exceptions.ScreenPlayException;
 import co.com.bancolombia.tasks.annotations.CATask;
+import co.com.bancolombia.utils.Constants;
 import co.com.bancolombia.utils.FileUtil;
 import co.com.bancolombia.utils.Util;
 import org.gradle.api.tasks.options.Option;
@@ -55,6 +56,6 @@ public class GenerateFeatureTask extends AbstracScreenPlayArchitectureDefaultTas
     }
 
     private void setupToExecute(String path) throws ParamNotFoundException, IOException {
-        builder.setupFromTemplate(path);
+        builder.setupFromTemplate(path , Constants.DEFINITION_FILE);
     }
 }
