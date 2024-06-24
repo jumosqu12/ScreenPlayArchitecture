@@ -44,7 +44,7 @@ echo "plugins {
 ```
 
 # How do it?
-<img src="./assets/Frame1CreateProject.gif" alt="Demostración del uso" width="50%"/>
+<img src="./assets/Frame1CreateProject.gif" alt="Demostración del uso" width="80%"/>
 
 # Tasks
 
@@ -105,7 +105,7 @@ gradle spa --projectName=Team_moduloPrueba --groupId=co.com.bancolombia.certific
    ┗ 📜settings.gradle
    ```
 # How do it?
-<img src="./assets/Frame2GenerateProject.gif" alt="Demostración del uso" width="50%"/>
+<img src="./assets/Frame2GenerateProject.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Features
 
@@ -133,7 +133,7 @@ also, there are 1 parameters optional `examples`
    ┃         ┗ 📜[feature_name].feature
 ```
 # How do it?
-<img src="./assets/Frame3GenerateFeature.gif" alt="Demostración del uso" width="50%"/>
+<img src="./assets/Frame3GenerateFeature.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Runners
 
@@ -164,7 +164,7 @@ parameter `name`
 ```
 
 # How do it?
-<img src="./assets/Frame4GenerateRunners.gif" alt="Demostración del uso" width="50%"/>
+<img src="./assets/Frame4GenerateRunners.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Rest Interaction
 
@@ -212,7 +212,7 @@ parameters `typeInteraction`
 ```
 
 # How do it?
-<img src="./assets/Frame5GenerateInteraction.gif" alt="Demostración del uso" width="50%"/>
+<img src="./assets/Frame5GenerateInteraction.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Tasks
 
@@ -255,7 +255,7 @@ and `typeTask`
 ```
 
 # How do it?
-<img src="./assets/Frame6GenerateTask.gif" alt="Demostración del uso" width="50%"/>
+<img src="./assets/Frame6GenerateTask.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Pipeline
 
@@ -281,7 +281,7 @@ parameters `name` and `type`
 ```
 
 # How do it?
-<img src="./assets/Frame7GeneratePipeline.gif" alt="Demostración del uso" width="50%"/>
+<img src="./assets/Frame7GeneratePipeline.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Database Connection
 
@@ -303,7 +303,7 @@ mentioned in the list attached to this description, this task has a required par
   gradle dbc --dataBase=databasetype
 ```
 # How do it?
-<img src="./assets/Frame8GenerateDb.gif" alt="Demostración del uso" width="50%"/>
+<img src="./assets/Frame8GenerateDb.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Critical Root
 
@@ -327,7 +327,7 @@ this task has two required parameters `features` and `language`
 | ES                         | Spanish |
 
 # How do it?
-<img src="./assets/Frame9GenerateRuta.gif" alt="Demostración del uso" width="50%"/>
+<img src="./assets/Frame9GenerateRuta.gif" alt="Demostración del uso" width="80%"/>
 
 # How can I help?
 
