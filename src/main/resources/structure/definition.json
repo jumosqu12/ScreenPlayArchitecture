@@ -28,7 +28,6 @@
     "structure/root/build.gradle.mustache": "build.gradle",
     "structure/root/settings.gradle.mustache": "settings.gradle",
     "structure/root/serenity.properties.mustache": "serenity.properties",
-    "structure/root/gradle.properties.mustache": "gradle.properties",
-    "structure/root/serenity.conf.mustache": "src/test/resources/serenity.conf"
+    "structure/root/gradle.properties.mustache": "gradle.properties"
   }
 }

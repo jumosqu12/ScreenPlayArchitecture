@@ -52,7 +52,7 @@ public class GenerateCriticalRootTask extends AbstracScreenPlayArchitectureDefau
         builder.addParam("date", Util.getDate());
         builder.addParam("status", true);
         builder.addParam("features", dataExtractor(List.of(features.split(",")), example, step));// Get the features name and Scenarios contained within the feature file
-        builder.setupFromTemplate("criticalroot");
+        builder.setupFromTemplate("criticalroot", Constants.DEFINITION_FILE);
         builder.persist();
     }
 

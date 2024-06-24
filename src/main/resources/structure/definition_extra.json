@@ -1,0 +1,10 @@
+{
+  "folders": [
+  ],
+  "java" : {
+    "structure/root/StepDefinition.java.mustache": "src/test/{{language}}/{{groupIdPath}}/{{principalPackage}}/stepdefinitions/StepDefinition.java"
+  },
+  "files" : {
+    "structure/root/serenity.conf.mustache": "src/test/resources/serenity.conf"
+  }
+}

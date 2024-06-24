@@ -86,8 +86,8 @@ public class ModuleBuilder {
         return (String) params.get(key);
     }
 
-    public void setupFromTemplate(String resourceGroup) throws IOException, ParamNotFoundException {
-        TemplateDefinition templateDefinition = loadTemplateDefinition(resourceGroup);
+    public void setupFromTemplate(String resourceGroup, String definitionFile) throws IOException, ParamNotFoundException {
+        TemplateDefinition templateDefinition = loadTemplateDefinition(resourceGroup, definitionFile);
 
         for (String folder : templateDefinition.getFolders()){
             addDir(Util.fillPath(folder, params));
@@ -140,8 +140,8 @@ public class ModuleBuilder {
         //getLatestRelease();
     }
 
-    private TemplateDefinition loadTemplateDefinition(String resourceGroup) throws IOException {
-        String targetString = FileUtil.getResourceAsString(resolver, Util.joinPath(resourceGroup, DEFINITION_FILES));
+    private TemplateDefinition loadTemplateDefinition(String resourceGroup, String definitionFile) throws IOException {
+        String targetString = FileUtil.getResourceAsString(resolver, Util.joinPath(resourceGroup, definitionFile));
         return mapper.readValue(targetString, TemplateDefinition.class);
     }
 
@@ -150,7 +150,9 @@ public class ModuleBuilder {
         StringWriter stringWriter = new StringWriter();
         mustache.execute(stringWriter, params);
         return stringWriter.toString().replace("&quot;", "\"")
-                .replace("&#39;", "'").replace("&#61;", "=");
+                .replace("&#39;", "'")
+                .replace("&#61;", "=")
+                .replace("&#10;", ";");
     }
     public void addParamPackage(String packageName) {
         this.params.put("package", packageName.toLowerCase());
