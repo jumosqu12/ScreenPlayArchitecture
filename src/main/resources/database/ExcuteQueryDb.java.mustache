@@ -24,6 +24,7 @@ public abstract class ExecuteQueryDb {
 
     abstract void loadProperties(String propertiesFilePath);
 
+    // Use this method for SQL SELECT statements.
     public List<Map<String, String>> executeQuery(String query) {
         List<Map<String, String>> results = new ArrayList<>();
 
@@ -46,6 +47,18 @@ public abstract class ExecuteQueryDb {
         }
 
         return results;
+    }
+
+    // Use this method for SQL INSERT, UPDATE or DELETE statements.
+    public void executeQueryAffectRows(String query) {
+        List<Map<String, String>> results = new ArrayList<>();
+
+        try (Connection conn = connect();
+            PreparedStatement pstmt = conn.prepareStatement(query)) {
+            System.out.println(pstmt.executeUpdate() + " row affected");
+        } catch (SQLException e) {
+        throw new IllegalStateException(e.getMessage());
+        }
     }
 
 }

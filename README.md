@@ -1,14 +1,18 @@
 # Scaffolding of ScreenPlay Architecture
 
-Gradle plugin to create a java application based on ScreenPlay Architecture following our best practices.
+The Gradle plugin enables the creation of Java applications based on the Screenplay Architecture, adhering to our 
+best practices.
 
-Bancolombia's technical team enables the ScreenPlay Architecture plugin as a tool that serves any programmer,
-organization, and anyone looking to implement test automations under the Screenplay design pattern making use
-of programming and programming best practices. SOLID Principles.
+Bancolombia's technical team has developed the Screenplay Architecture plugin as a tool designed for programmers, 
+organizations, and anyone seeking to implement test automation using the Screenplay design pattern while following 
+programming best practices, including SOLID principles.
 
-ScreenPlay Architecture is an open source plugin, which allows the entire community of programmers to contribute to
-the development of improvements, new practices, functionalities and other contributions that make the plugin a robust
-and useful tool for the entire community.
+The Screenplay Architecture plugin is open-source, allowing the programming community to contribute to its development. 
+These contributions may include improvements, new practices, added functionalities, and other enhancements that make the 
+plugin a robust and valuable tool for the entire community.
+
+## License
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for detail.
 
 - [Scaffolding of ScreenPlay Architecture](#Scaffolding-of-ScreenPlay-Architecture)
 - [Plugin Implementation](#plugin-implementation)
@@ -26,7 +30,7 @@ and useful tool for the entire community.
 
 # Plugin implementation
 
-To use the [plugin](#) you need Gradle version 8.6 or later, to start add the following section into your
+To use the [plugin](#) ensure you have Gradle version 8.6 or later. To get started, add the following section to your
 **build.gradle** file.
 
 ```groovy
@@ -35,7 +39,7 @@ plugins {
 }
 ```
 
-or if is a new project execute this script in the root directory of your project.
+If it is a new project, execute this script in the root directory of your project.
 
 ```sh
 echo "plugins {
@@ -45,20 +49,20 @@ echo "plugins {
 
 # Tasks
 
-The Scaffolding ScreenPlay Architecture plugin will allow you run 8 tasks:
+The Scaffolding Screenplay Architecture plugin enables you to run 8 tasks:
 
 ## Generate Project
 
-The **`screenPlayArchitecture | spa`** task will generate a ScreenPlay architecture structure in your project, this task
-has 3 optional parameters; `projectName` , `groupId` and `principalPackage`.
-If you run this task on an existing project it will override the `build.gradle` file.
+The **`screenPlayArchitecture | spa`** task generates a Screenplay Architecture structure in your project. 
+This task includes three optional parameters: `projectName` , `groupId` and `principalPackage`.
+If you run this task in an existing project, it will override the `build.gradle` file.
 
 - **`projectName`** `= ProjectName`: This parameter is going to specify name of the
   project. `Default value = Screenplay_architecture`
 - **`groupId`** `= <your.company.domain>`: You can specify your domain, this parameter going to use for package
   structure. `Default value = co.com.bancolombia.certificacion`
-- **`principalPackage`** `= package container`: This parameter going to like package container and is a complement for
-  groupId. `Default value = screen`
+- **`principalPackage`** `= package container`: This parameter acts as a package container and complements the.
+ `Default value = screen`
 - **`type`** `= choose between REST or UX`: This parameter going to specify type automation will be
   create. `Default value = UX`
 
@@ -108,7 +112,7 @@ The **`generateFeature | gft`** task will generate feature files inside features
 parameter `name` and `nameSubFolder`
 also, there are 1 parameters optional `examples`
 
-- **`name`** `= name_feature`: This parameter is going to specify the name of the feature class. `field is required`
+- **`name`** `= name_feature`: This parameter is going to specify the name of the feature file. `field is required`
 - **`examples`** `= true`: This parameter is going to specify if Scenario Outline are
   needed. `field for default is false`
 - **`nameSubFolder`** `= nameSubFolder`: This parameter is going to specify the name of the subfolder that will contain
@@ -160,7 +164,7 @@ parameter `name`
 ## Generate Rest Interaction
 
 The **`generateRestInteraction | gri`** task will generate the rest interaction classes, this task has one required
-parameters `typeInteraction`
+parameter `typeInteraction`
 
 - **`typeInteraction`** `= interaction`: This parameter is going to specify the type of interaction to
   use. `field is required`
@@ -209,7 +213,7 @@ and `typeTask`
 
 - **`name`** `= nameTaskClass`: This parameter is going to specify the name task class to use. `field is required`
 - **`typeTask`** `= Rest`: This parameter is going to specify the type task class to use. `field is required`
-- **`method`** `= typeTask`: If you choose 'Rest' for the `typeTask` field, the 'method' field becomes mandatory, as it
+- **`method`** `= typeTask`: If you choose `Rest` for the `typeTask` field, the `method` field becomes mandatory, as it
   constructs the Task list for REST consumption. `field is required`
 
 ```shell
@@ -293,8 +297,7 @@ this task has two required parameters `features` and `language`
 - **`componentName`** `= component_name_test`: This parameter specify the project component name  `field is optional`
 - **`features`** `= featureroot`: This parameter specify the feature root and name to extract the scenario separate for
   comma. `field is required`
-- **`language`** `= languageFeature`: This parameter specify the language used in the Gherkin language into the feature
-  file. `field is required`
+- **`language`** `= languageFeature`: This parameter specifies the language used for Gherkin in the feature file. `field is required`
 
 ```shell
   gradle generateCriticalRoot --componentName=component_test --features=root/feature_one,root/feature_two --language=EN 
