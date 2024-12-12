@@ -99,9 +99,12 @@ public class GenerateArchitectureDefaultTask extends AbstracScreenPlayArchitectu
         boolean exists = FileUtil.exists(builder.getProject().getProjectDir().getPath(), SERENITY_PROPERTIES);
         if (exists && force == BooleanOption.FALSE){
             logger.lifecycle("Another project was found in the same directory, rewriting build.gradle, gradle.properties and setting.gradle files ");
-            builder.setupFromTemplate("structure/restructure");
+            builder.setupFromTemplate("structure/restructure", Constants.DEFINITION_FILE);
         }else{
-            builder.setupFromTemplate("structure");
+            builder.setupFromTemplate("structure", Constants.DEFINITION_FILE);
+        }
+        if (type.equals(ProjectType.UX)) {
+            builder.setupFromTemplate("structure", "definition_extra.json");
         }
         builder.persist();
     }

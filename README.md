@@ -35,7 +35,7 @@ To use the [plugin](#) ensure you have Gradle version 8.6 or later. To get start
 
 ```groovy
 plugins {
-    id "io.github.jumosqu12.screenplayarchitecture" version "1.1.0"
+    id "io.github.jumosqu12.screenplayarchitecture" version "1.1.1"
 }
 ```
 
@@ -43,9 +43,12 @@ If it is a new project, execute this script in the root directory of your projec
 
 ```sh
 echo "plugins {
-  id \"io.github.jumosqu12.screenplayarchitecture\" version \"1.1.0\"
+  id \"io.github.jumosqu12.screenplayarchitecture\" version \"1.1.1\"
 }" > build.gradle
 ```
+
+# How do it?
+<img src="./assets/Frame1CreateProject.gif" alt="Demostración del uso" width="80%"/>
 
 # Tasks
 
@@ -105,6 +108,8 @@ gradle spa --projectName=Team_moduloPrueba --groupId=co.com.bancolombia.certific
    ┣ 📜build.gradle
    ┗ 📜settings.gradle
    ```
+# How do it?
+<img src="./assets/Frame2GenerateProject.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Features
 
@@ -131,6 +136,8 @@ also, there are 1 parameters optional `examples`
    ┃       ┗ 📂[nameSubFolder]
    ┃         ┗ 📜[feature_name].feature
 ```
+# How do it?
+<img src="./assets/Frame3GenerateFeature.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Runners
 
@@ -158,8 +165,10 @@ parameter `name`
 ┃   ┃           ┣ 📂runners
 ┃   ┃           ┃ ┗ 📂[runnerspackage]
 ┃   ┃           ┃   ┗ 📜[name].java
-
 ```
+
+# How do it?
+<img src="./assets/Frame4GenerateRunners.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Rest Interaction
 
@@ -206,6 +215,9 @@ parameter `typeInteraction`
  ┃ ┃             ┃ ┣ 📜[nameInteraction].java
 ```
 
+# How do it?
+<img src="./assets/Frame5GenerateInteraction.gif" alt="Demostración del uso" width="80%"/>
+
 ## Generate Tasks
 
 The **`generateTask | gtk`** task will generate the Rest task or Ux class, this task has two required parameter `name`
@@ -246,6 +258,9 @@ and `typeTask`
  ┃ ┃             ┃ ┣ 📜[Ux].java
 ```
 
+# How do it?
+<img src="./assets/Frame6GenerateTask.gif" alt="Demostración del uso" width="80%"/>
+
 ## Generate Pipeline
 
 The **`generatePipeline | gpl`** task will generate CI/CD pipeline inside root project, this task has two required
@@ -269,6 +284,9 @@ parameters `name` and `type`
    ┗ 📜settings.gradle
 ```
 
+# How do it?
+<img src="./assets/Frame7GeneratePipeline.gif" alt="Demostración del uso" width="80%"/>
+
 ## Generate Database Connection
 
 The **`dbConnection | dbc`** task will generate the class necessary to configure a connection to the databases
@@ -288,6 +306,8 @@ mentioned in the list attached to this description, this task has a required par
   gradle dbConnection --dataBase=databasetype
   gradle dbc --dataBase=databasetype
 ```
+# How do it?
+<img src="./assets/Frame8GenerateDb.gif" alt="Demostración del uso" width="80%"/>
 
 ## Generate Critical Root
 
@@ -308,6 +328,9 @@ this task has two required parameters `features` and `language`
 |----------------------------|---------|
 | EN                         | English |
 | ES                         | Spanish |
+
+# How do it?
+<img src="./assets/Frame9GenerateRuta.gif" alt="Demostración del uso" width="80%"/>
 
 # How can I help?
 

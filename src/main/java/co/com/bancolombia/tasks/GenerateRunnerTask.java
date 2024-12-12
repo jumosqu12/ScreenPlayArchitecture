@@ -18,6 +18,7 @@ package co.com.bancolombia.tasks;
 
 import co.com.bancolombia.exceptions.ScreenPlayException;
 import co.com.bancolombia.tasks.annotations.CATask;
+import co.com.bancolombia.utils.Constants;
 import co.com.bancolombia.utils.Util;
 import org.gradle.api.tasks.options.Option;
 
@@ -46,7 +47,7 @@ public class GenerateRunnerTask extends AbstracScreenPlayArchitectureDefaultTask
         logger.lifecycle("Runner name: {}", name);
         builder.addParam("runnerName", name);
         builder.addParam("folderName", folderName.toLowerCase());
-        builder.setupFromTemplate("runners");
+        builder.setupFromTemplate("runners", Constants.DEFINITION_FILE);
         builder.persist();
     }
 }

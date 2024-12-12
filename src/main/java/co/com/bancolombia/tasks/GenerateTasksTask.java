@@ -77,6 +77,6 @@ public class GenerateTasksTask extends AbstracScreenPlayArchitectureDefaultTask{
             builder.addParam("access", Util.validateMethod(method).get(0));
             builder.addParam("data", Util.validateMethod(method).get(1));
         }
-        builder.setupFromTemplate("tasks/" + typeTask.toLowerCase());
+        builder.setupFromTemplate("tasks/" + typeTask.toLowerCase(), Constants.DEFINITION_FILE);
     }
 }

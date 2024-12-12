@@ -8,6 +8,7 @@ import java.util.Map;
 public class Constants {
 
     public static final String PLUGIN_TASK_GROUP = "ScreenPlay Architecture";
+    public static final String DEFINITION_FILE = "definition.json";
     public static final String APP_SERVICE = "app-service";
 
     public enum BooleanOption {
@@ -27,7 +28,7 @@ public class Constants {
         UX
     }
 
-    public static final String PLUGIN_VERSION = "1.1.0";
+    public static final String PLUGIN_VERSION = "1.1.1";
     public static final String BUILD_GRADLE = "./build.gradle";
     public static final String CRITICAL_ROOT_NAME = "rutacritica";
     public static final String GRADLE_PROPERTIES = "/gradle.properties";
@@ -73,9 +74,9 @@ public class Constants {
     public static final List<String> DATABASE = List.of(new String[]{"mysql", "postgresql", "oracle", "sqlserver", "as400"});
     public static final String SETTING_SYSTEM_CONFIG = "systemProperty 'PARAM', System.getProperty('PARAM')\n" +
             "    // System configs";
-    public static final String METHODUI = "@Given(\"This method is responsible for parameterizing the instantiation of chromedriver\")\n" +
-            "    public void thisMethodIsResponsibleForParameterizingTheInstantiationOfChromedriver() {\n" +
-            "        OnStage.theActorInTheSpotlight().wasAbleTo(Open.browserOn().thePageNamed(\"pages.swaglabsUrl\"));\n" +
+    public static final String METHODUI = "@Given(\"This method is responsible for parameterizing the instantiation of chromedriver\")" +
+            "    public void thisMethodIsResponsibleForParameterizingTheInstantiationOfChromedriver() { " +
+            "        OnStage.theActorInTheSpotlight().wasAbleTo(Open.browserOn().thePageNamed(\"pages.swaglabsUrl\"));" +
             "    }";
 
 

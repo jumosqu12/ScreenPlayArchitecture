@@ -1,8 +1,5 @@
 buildscript {
     repositories {
-        maven {
-            url "{{remoteRepository}}"
-        }
         mavenLocal()
         mavenCentral()
     }
@@ -20,10 +17,8 @@ group '{{groupId}}'
 sourceCompatibility = {{javaVersion}}
 
 repositories {
-    maven {
-        url "{{remoteRepository}}"
-    }
-    mavenLocal()
+
+    mavenCentral()
 }
 
 ext {

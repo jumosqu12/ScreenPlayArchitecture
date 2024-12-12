@@ -48,7 +48,7 @@ public class GenerateBdConnectionTask extends AbstracScreenPlayArchitectureDefau
 
         logger.lifecycle("ScreenPlay architecture plugin version: {}", Util.getVersionPlugin());
         logger.lifecycle("Type implementation: {}", dataBaseType);
-        builder.setupFromTemplate("database/" + dataBaseType.toLowerCase());
+        builder.setupFromTemplate("database/" + dataBaseType.toLowerCase(), Constants.DEFINITION_FILE);
         Util.getDataFile(builder, "//Additional library",
                 Constants.DATA_BASE_LIBRARY.get(dataBaseType.toLowerCase()));
         Util.getDataFile(builder, "// System configs",

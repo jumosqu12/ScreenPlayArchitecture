@@ -55,7 +55,7 @@ public class GenerateRestInteractionTask extends AbstracScreenPlayArchitectureDe
             builder.addParam("nameInteCapitalize", Util.capitalize(nameInteraction));
             builder.addParam("nameInteLower", Util.nocapitalize(nameInteraction));
         }
-        builder.setupFromTemplate("interactions/" + typeInteraction.toLowerCase());
+        builder.setupFromTemplate("interactions/" + typeInteraction.toLowerCase(), Constants.DEFINITION_FILE);
         builder.persist();
     }
 }
