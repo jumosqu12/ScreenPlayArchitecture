@@ -35,7 +35,7 @@ To use the [plugin](#) ensure you have Gradle version 8.6 or later. To get start
 
 ```groovy
 plugins {
-    id "io.github.jumosqu12.screenplayarchitecture" version "1.1.1"
+    id "io.github.jumosqu12.screenplayarchitecture" version "1.1.2"
 }
 ```
 
@@ -43,7 +43,7 @@ If it is a new project, execute this script in the root directory of your projec
 
 ```sh
 echo "plugins {
-  id \"io.github.jumosqu12.screenplayarchitecture\" version \"1.1.1\"
+  id \"io.github.jumosqu12.screenplayarchitecture\" version \"1.1.2\"
 }" > build.gradle
 ```
 
